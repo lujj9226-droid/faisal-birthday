@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Faisal! 🎉</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0f0c1b;
@@ -25,14 +25,14 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'VT323', monospace;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
-        /* Pixel Grid Effect Background */
         .pixel-bg {
             position: fixed;
             top: 0;
@@ -52,16 +52,15 @@
             margin: 40px auto;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
         }
 
-        /* Retro Pixel Card Styling */
         .pixel-box {
             background-color: var(--card-bg);
             border: 4px solid var(--accent-cyan);
             box-shadow: 6px 6px 0px var(--accent-pink);
             padding: 24px;
-            border-radius: 4px;
+            border-radius: 8px;
             text-align: center;
             position: relative;
         }
@@ -69,19 +68,19 @@
         .pixel-title {
             font-family: 'Press Start 2P', cursive;
             color: var(--accent-yellow);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px var(--accent-pink);
             line-height: 1.5;
         }
 
         .pixel-subtitle {
-            font-size: 1.1rem;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
             color: #d1c4e9;
             margin-bottom: 20px;
         }
 
-        /* Avatars Grid */
         .avatar-container {
             display: flex;
             justify-content: center;
@@ -98,31 +97,16 @@
             box-shadow: 4px 4px 0px #000;
         }
 
-        /* Password Game Section */
         .game-section {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .input-box {
-            width: 100%;
-            padding: 12px;
-            font-size: 1rem;
-            font-family: 'Tajawal', sans-serif;
-            background-color: #0b0813;
-            border: 2px solid var(--accent-cyan);
-            color: #fff;
-            text-align: center;
-            border-radius: 4px;
-            outline: none;
-        }
-
         .btn-pixel {
-            font-family: 'Tajawal', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 12px 24px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            padding: 14px 24px;
             background-color: var(--accent-pink);
             color: #fff;
             border: none;
@@ -136,49 +120,53 @@
             box-shadow: 2px 2px 0px var(--accent-yellow);
         }
 
-        /* Hidden Message Section */
         #secret-message {
             display: none;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
         }
 
         .message-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.5rem;
+            line-height: 1.6;
             color: #ffffff;
-            text-align: justify;
+            text-align: left;
             white-space: pre-line;
             background: rgba(0, 0, 0, 0.3);
             padding: 20px;
             border-radius: 8px;
-            border-right: 4px solid var(--accent-yellow);
+            border-left: 4px solid var(--accent-yellow);
+            margin-bottom: 25px;
         }
 
-        /* Floating Audio Control Button */
-        .music-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--card-bg);
-            border: 2px solid var(--accent-cyan);
-            color: var(--accent-yellow);
-            padding: 10px 15px;
-            font-size: 0.9rem;
+        /* Spotify Section */
+        .spotify-container {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed var(--accent-cyan);
+        }
+
+        .spotify-title {
             font-family: 'Press Start 2P', cursive;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 3px 3px 0px var(--accent-pink);
+            color: var(--accent-yellow);
+            font-size: 0.75rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
         }
 
-        /* Scroll indicator arrow */
+        iframe {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
         .scroll-down-notice {
-            margin-top: 15px;
+            font-family: 'Press Start 2P', cursive;
+            margin-top: 10px;
             color: var(--accent-yellow);
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             animation: bounce 1.5s infinite;
         }
 
@@ -200,7 +188,6 @@
             <div class="pixel-subtitle">HAPPY BIRTHDAY FAISAL!</div>
             
             <div class="avatar-container">
-                <!-- Retro Pixel Avatars placeholders -->
                 <svg class="avatar" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="16" height="16" fill="#1a1528"/>
                     <rect x="4" y="3" width="8" height="8" fill="#ffe600"/>
@@ -210,60 +197,47 @@
                 </svg>
             </div>
 
-            <p style="margin-bottom: 15px; color: #a594c8;">حل اللغز البسيط بأسفل لفتح بطاقة التهنئة السرية 🎮</p>
+            <p style="font-size: 1.3rem; color: #a594c8;">Press the button below to unlock the secret message! 🎮</p>
         </div>
 
         <!-- Interactive Game Section -->
         <div class="pixel-box game-section">
-            <div style="color: var(--accent-cyan); font-weight: bold;">[ QUESTION ]</div>
-            <p>ما هو التاريخ أو الكلمة السرية المفضلة؟</p>
-            <input type="text" id="pass-input" class="input-box" placeholder="أدخل الإجابة هنا...">
-            <button class="btn-pixel" onclick="checkAnswer()">UNLOCK 🔓</button>
-            <p id="error-msg" style="color: var(--accent-pink); display: none; font-size: 0.9rem;">إجابة خاطئة! حاول مرة أخرى 👾</p>
+            <div style="color: var(--accent-cyan); font-family: 'Press Start 2P'; font-size: 0.8rem;">[ QUEST ]</div>
+            <p style="font-size: 1.3rem;">Ready to see your birthday surprise?</p>
+            <button class="btn-pixel" onclick="unlockMessage()">UNLOCK 🔓</button>
         </div>
 
-        <!-- Secret Message Section (Unlocked via Pass or Direct Scroll) -->
+        <!-- Secret Message Section & Spotify below it -->
         <div id="secret-message" class="pixel-box">
             <div class="pixel-title">SPECIAL MESSAGE 💌</div>
+            
             <div class="message-text">
-                كل عام وأنت بألف خير يا فيصل! 🎉✨
-                أتمنى لك سنة جديدة مليانة نجاحات وإنجازات وسعادة ما تخلص. 
-                شكراً على كل اللحظات الرهيبة والذكريات الحلوة، وإن شاء الله تكون سنة عظيمة عليك تحقق فيها كل أحلامك وأهدافك! 🚀🎮
+                Happy Birthday Faisal! 🎉✨
+                Wishing you an amazing year filled with victories, greatness, and non-stop achievements.
+                Hope this level brings you everything you've been working towards! 🚀🎮
             </div>
-            <div class="scroll-down-notice">🎵 استمتع بالأغنية 🎵</div>
+
+            <div class="scroll-down-notice">👇 SCROLL DOWN FOR THE TRACK 👇</div>
+
+            <!-- Spotify Player Section (Placed Below Message) -->
+            <div class="spotify-container">
+                <div class="spotify-title">🎵 PRESS PLAY BELOW 🎵</div>
+                <iframe style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/track/3S8A4xW1lSChs6vS2IqK92?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="152" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                </iframe>
+            </div>
         </div>
     </div>
 
-    <!-- Audio Player Button -->
-    <button class="music-btn" id="music-toggle" onclick="toggleAudio()">
-        <span id="music-icon">▶</span> MUSIC
-    </button>
-
-    <!-- Background Audio -->
-    <audio id="bg-music" loop preload="auto">
-        <!-- يمكن استبدال هذا الرابط بأي رابط مباشر لأغنية ميلاد مفضلة -->
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
     <script>
-        const bgMusic = document.getElementById('bg-music');
-        const musicToggle = document.getElementById('music-toggle');
-        const musicIcon = document.getElementById('music-icon');
-        const secretMessage = document.getElementById('secret-message');
-        let audioTriggered = false;
-
-        // Unlock Game Functionality
-        function checkAnswer() {
-            const input = document.getElementById('pass-input').value.trim();
-            // يمكنك تغيير الإجابة هنا أو قبول أي إجابة
-            if (input !== "") {
-                unlockMessage();
-            } else {
-                document.getElementById('error-msg').style.display = 'block';
-            }
-        }
-
         function unlockMessage() {
+            const secretMessage = document.getElementById('secret-message');
             secretMessage.style.display = 'block';
             setTimeout(() => {
                 secretMessage.style.opacity = '1';
@@ -271,37 +245,7 @@
             }, 100);
         }
 
-        // Trigger Music on Scroll Down to Message
-        window.addEventListener('scroll', function() {
-            if (!audioTriggered) {
-                const messagePos = secretMessage.getBoundingClientRect();
-                // Check if user scrolled near the bottom/message
-                if (messagePos.top < window.innerHeight && secretMessage.style.display === 'block') {
-                    playAudio();
-                    audioTriggered = true;
-                }
-            }
-        });
-
-        function playAudio() {
-            bgMusic.play().then(() => {
-                musicIcon.textContent = '❚❚';
-            }).catch(error => {
-                console.log("Autoplay prevented by browser, waiting for user click.");
-            });
-        }
-
-        function toggleAudio() {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicIcon.textContent = '❚❚';
-            } else {
-                bgMusic.pause();
-                musicIcon.textContent = '▶';
-            }
-        }
-
-        // Automatically display message for demo flexibility if needed
+        // Auto unlock for demo
         unlockMessage();
     </script>
 </body>
