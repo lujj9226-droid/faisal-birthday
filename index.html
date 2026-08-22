@@ -1,163 +1,1038 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday!</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --accent: #ec4899;
-      --text: #f8fafc;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
+    <title>For Faisal ♡</title>
 
-    .container {
-      max-width: 500px;
-      width: 90%;
-      text-align: center;
-    }
+    <link rel="stylesheet" href="style.css">
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 35px 25px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    h1 {
-      margin-top: 0;
-      color: var(--accent);
-    }
-
-    button {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      background: #db2777;
-    }
-
-    .audio-btn {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      margin-top: 20px;
-      width: 100%;
-    }
-
-    .audio-btn:hover {
-      background: var(--accent);
-      color: white;
-    }
-
-    input[type="password"] {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #475569;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      font-size: 1.2rem;
-      width: 160px;
-      margin-bottom: 15px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .letter-box {
-      margin-top: 25px;
-      padding: 25px;
-      background: #0f172a;
-      border-radius: 12px;
-      border: 1px dashed var(--accent);
-      text-align: left;
-      line-height: 1.6;
-    }
-
-    .hidden { display: none; }
-  </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-  <div class="container">
-    
-    <div class="card">
-      <h1>🎉 Secret Birthday Message</h1>
-      <p style="margin-bottom: 25px; color: #94a3b8;">Enter the passcode to unlock your letter:</p>
-      
-      <!-- Passcode Input -->
-      <input type="password" id="passcode" maxlength="10" placeholder="Enter Code">
-      <button onclick="checkPasscode()">Unlock Letter 🔓</button>
-      
-      <!-- Hidden Letter (Reveals when correct code is entered) -->
-      <div id="secretLetter" class="letter-box hidden">
-        <h3 style="margin-top:0; color: var(--accent);">Dear Birthday Person,</h3>
-        <p>
-          Happy Birthday! Wishing you a fantastic day filled with happiness, laughter, and everything you love.
-        </p>
-        <p>
-          Hope this year brings you so much success and joy!
-        </p>
-        <p style="text-align: right; font-weight: bold; margin-bottom: 20px;">
-          — Sent with love ❤️
-        </p>
+    <!-- ================= PASSWORD SCREEN ================= -->
 
-        <!-- Background Music Section Placed Below Letter -->
-        <audio id="bgMusic" loop>
-          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
-        <button class="audio-btn" onclick="toggleAudio()">🎵 Play Background Music</button>
+    <section id="passwordScreen">
 
-      </div>
+        <div class="password-container">
 
-    </div>
-  </div>
+            <div class="tiny-heart">♡</div>
 
-  <script>
-    function toggleAudio() {
-      const audio = document.getElementById('bgMusic');
-      if (audio.paused) { 
-        audio.play(); 
-      } else { 
-        audio.pause(); 
-      }
-    }
+            <p class="top-label">A little surprise for you</p>
 
-    function checkPasscode() {
-      const input = document.getElementById('passcode').value;
-      
-      // CHANGE "1234" TO WHATEVER PASSCODE YOU WANT
-      if (input === '1234') {
-        document.getElementById('secretLetter').classList.remove('hidden');
-      } else {
-        alert('Incorrect passcode! Try again.');
-      }
-    }
-  </script>
+            <h1>For Faisal</h1>
+
+            <p class="subtitle">
+                Enter the password to unlock your birthday message.
+            </p>
+
+            <div class="password-area">
+
+                <input
+                    type="password"
+                    id="passwordInput"
+                    maxlength="4"
+                    placeholder="••••"
+                    autocomplete="off"
+                >
+
+                <button onclick="unlock()">
+                    Unlock ♡
+                </button>
+
+            </div>
+
+            <p id="errorMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN WEBSITE ================= -->
+
+    <main id="mainContent">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    for my favorite person
+                </p>
+
+                <h1>
+                    Happy Birthday,
+                    <span>Faisal.</span>
+                </h1>
+
+                <div class="divider"></div>
+
+                <p class="intro">
+                    I made something small for you.
+                </p>
+
+                <div class="scroll-indicator">
+                    <span>scroll</span>
+                    <div class="arrow">↓</div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LETTER ================= -->
+
+        <section class="letter-section">
+
+            <div class="letter">
+
+                <p class="letter-small">
+                    A letter for you
+                </p>
+
+                <h2>
+                    Happy Birthday, Faisal.
+                </h2>
+
+                <div class="small-line"></div>
+
+
+                <p>
+                    I’ve been trying to find the right words, but honestly,
+                    nothing feels big enough to describe what you mean to me.
+                    Finding you was the best thing that ever happened to me.
+                </p>
+
+                <p>
+                    You’ve given me a kind of peace and safety I’ve never felt
+                    with anyone else. With you, I can just be completely myself,
+                    and that’s the greatest feeling in the world.
+                    I feel so unbelievably lucky to have you by my side.
+                </p>
+
+                <p>
+                    Thank you for being my safe space, my favorite person,
+                    and my home.
+                </p>
+
+                <p class="special">
+                    I love you so much, Faisal.
+                </p>
+
+                <p class="final-line">
+                    Happy Birthday ❤️
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SONG ================= -->
+
+        <section class="song-section">
+
+            <div class="song-wrapper">
+
+                <p class="eyebrow">
+                    this one is for you
+                </p>
+
+                <div class="vinyl">
+
+                    <div class="vinyl-center">
+                        ♡
+                    </div>
+
+                </div>
+
+                <h2>
+                    Eyes Off You
+                </h2>
+
+                <p class="artist">
+                    PRETTYMUCH
+                </p>
+
+                <div class="small-line"></div>
+
+
+                <!-- SPOTIFY -->
+
+                <div class="spotify-player">
+
+                    <iframe
+                        src="https://open.spotify.com/embed/track/0VpEX8ib3wE7u8NOw4szU6?utm_source=generator"
+                        width="100%"
+                        height="152"
+                        frameBorder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
+
+
+                <p class="song-message">
+                    Some songs just remind me of you.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= END ================= -->
+
+        <section class="ending">
+
+            <div class="ending-content">
+
+                <div class="big-heart">
+                    ♡
+                </div>
+
+                <p class="eyebrow">
+                    and one last thing
+                </p>
+
+                <h2>
+                    I'm so lucky
+                    <br>
+                    I found you.
+                </h2>
+
+                <p>
+                    I hope this year brings you everything
+                    you deserve and more.
+                </p>
+
+                <p class="love">
+                    I love you. Always. ❤️
+                </p>
+
+                <div class="signature">
+                    — L
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            made with love ♡
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #090708;
+    color: #f5eeee;
+    font-family: "Montserrat", sans-serif;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#passwordScreen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #25171b 0%,
+            #100b0d 45%,
+            #090708 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+#passwordScreen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.password-container {
+    width: 90%;
+    max-width: 430px;
+
+    text-align: center;
+
+    animation: fadeUp 1.2s ease;
+}
+
+.tiny-heart {
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    animation: heartbeat 2s infinite;
+}
+
+.top-label,
+.eyebrow {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    color: #9b858a;
+}
+
+.password-container h1 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(50px, 10vw, 72px);
+
+    font-weight: normal;
+
+    margin: 18px 0;
+}
+
+.subtitle {
+    color: #a99b9e;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.password-area {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.password-area input {
+    width: 100%;
+
+    padding: 16px;
+
+    background: transparent;
+
+    border: 1px solid #4c3f42;
+
+    color: white;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    letter-spacing: 8px;
+
+    transition: 0.3s;
+}
+
+.password-area input:focus {
+    border-color: #c6aeb3;
+}
+
+.password-area button {
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    background: #f2e6e8;
+
+    color: #171011;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.password-area button:hover {
+    background: #d9c0c5;
+
+    transform: translateY(-2px);
+}
+
+#errorMessage {
+    min-height: 18px;
+
+    margin-top: 18px;
+
+    color: #bd8e99;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+#mainContent {
+    display: none;
+}
+
+#mainContent.visible {
+    display: block;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #2b191e 0%,
+            #130c0f 48%,
+            #090708 100%
+        );
+}
+
+.hero-content {
+    animation: fadeUp 1.5s ease;
+}
+
+.hero h1 {
+    font-family: "DM Serif Display", serif;
+
+    font-weight: normal;
+
+    font-size: clamp(52px, 10vw, 95px);
+
+    line-height: 1.05;
+
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #d9bcc2;
+}
+
+.divider,
+.small-line {
+    width: 45px;
+    height: 1px;
+
+    background: #806b70;
+
+    margin: 25px auto;
+}
+
+.intro {
+    color: #a8999d;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+.scroll-indicator {
+    margin-top: 80px;
+
+    color: #817174;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    animation: floating 2s infinite;
+}
+
+.scroll-indicator span {
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+}
+
+.arrow {
+    font-size: 20px;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-section {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 120px 25px;
+
+    background: #0c080a;
+}
+
+.letter {
+    width: 100%;
+    max-width: 700px;
+
+    text-align: center;
+}
+
+.letter-small {
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    color: #907d82;
+
+    margin-bottom: 25px;
+}
+
+.letter h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-weight: normal;
+
+    font-size: clamp(38px, 7vw, 62px);
+
+    margin-bottom: 10px;
+}
+
+.letter > p:not(.letter-small):not(.special):not(.final-line) {
+    color: #c0b5b8;
+
+    font-size: 14px;
+
+    line-height: 2.1;
+
+    margin: 30px auto;
+
+    max-width: 650px;
+}
+
+.special {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 28px;
+
+    color: #e8d6da;
+
+    margin-top: 50px;
+}
+
+.final-line {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 23px;
+
+    color: #d7b8bf;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   SONG
+========================= */
+
+.song-section {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 100px 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #28181d 0%,
+            #110b0d 50%,
+            #090708 100%
+        );
+}
+
+.song-wrapper {
+    width: 100%;
+    max-width: 550px;
+
+    text-align: center;
+}
+
+.vinyl {
+    width: 210px;
+    height: 210px;
+
+    border-radius: 50%;
+
+    margin: 40px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #111 0px,
+            #111 3px,
+            #191719 4px,
+            #111 6px
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6);
+
+    animation: spin 8s linear infinite;
+    animation-play-state: paused;
+}
+
+.vinyl-center {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #2a171d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 22px;
+}
+
+.song-wrapper h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 48px;
+
+    font-weight: normal;
+}
+
+.artist {
+    color: #988589;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-top: 8px;
+}
+
+.spotify-player {
+    margin-top: 35px;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+.spotify-player iframe {
+    display: block;
+}
+
+.song-message {
+    margin-top: 35px;
+
+    color: #b6a7aa;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 19px;
+}
+
+
+/* =========================
+   ENDING
+========================= */
+
+.ending {
+    min-height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    background: #090708;
+}
+
+.ending-content {
+    max-width: 600px;
+}
+
+.big-heart {
+    font-size: 65px;
+
+    margin-bottom: 35px;
+
+    animation: heartbeat 2s infinite;
+}
+
+.ending h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(45px, 8vw, 70px);
+
+    font-weight: normal;
+
+    line-height: 1.1;
+
+    margin: 25px 0;
+}
+
+.ending-content > p:not(.eyebrow):not(.love) {
+    color: #a99b9f;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    max-width: 450px;
+
+    margin: auto;
+}
+
+.love {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 25px;
+
+    color: #dfc5ca;
+
+    margin-top: 40px;
+}
+
+.signature {
+    margin-top: 45px;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 30px;
+
+    color: #b99ba1;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    background: #090708;
+
+    color: #574b4e;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .password-container {
+        max-width: 340px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .letter > p:not(.letter-small):not(.special):not(.final-line) {
+        font-size: 13px;
+
+        line-height: 2;
+    }
+
+    .vinyl {
+        width: 175px;
+        height: 175px;
+    }
+
+    .song-wrapper h2 {
+        font-size: 40px;
+    }
+
+    .ending h2 {
+        font-size: 48px;
+    }
+}
+/* =========================
+   PASSWORD
+========================= */
+
+function unlock() {
+
+    const input = document.getElementById("passwordInput");
+
+    const passwordScreen =
+        document.getElementById("passwordScreen");
+
+    const mainContent =
+        document.getElementById("mainContent");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+
+    if (input.value === "2323") {
+
+        errorMessage.textContent = "";
+
+        passwordScreen.classList.add("hidden");
+
+        setTimeout(function () {
+
+            mainContent.classList.add("visible");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }, 1000);
+
+
+    } else {
+
+        errorMessage.textContent =
+            "Hmm... that's not it ♡";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+document
+    .getElementById("passwordInput")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+            unlock();
+
+        }
+
+    });
+
+
+/* =========================
+   VINYL ANIMATION
+========================= */
+
+const spotifyPlayer =
+    document.querySelector(".spotify-player");
+
+const vinyl =
+    document.querySelector(".vinyl");
+
+
+/*
+   Spotify is inside an iframe, so the website
+   cannot directly detect play/pause events
+   from Spotify because of browser security rules.
+
+   The vinyl therefore stays as a visual element.
+*/
+
+
+/* =========================
+   FADE-IN SECTIONS
+========================= */
+
+const sections =
+    document.querySelectorAll(
+        ".letter, .song-wrapper, .ending-content"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+sections.forEach(function(section) {
+
+    section.style.opacity = "0";
+
+    section.style.transform =
+        "translateY(25px)";
+
+    section.style.transition =
+        "opacity 1s ease, transform 1s ease";
+
+    observer.observe(section);
+
+});
