@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Faisal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(23, 32, 54, 0.75);
+      --accent: #ff4b82;
+      --accent-glow: rgba(255, 75, 130, 0.4);
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 75, 130, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Envelope Hero Section */
+    .envelope-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 35px 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+
+    .envelope-wrapper {
+      margin: 20px auto 30px;
+      width: 130px;
+      height: 90px;
+      position: relative;
+      cursor: pointer;
+      perspective: 1000px;
+      transition: transform 0.3s ease;
+    }
+
+    .envelope-wrapper:hover {
+      transform: scale(1.06) rotate(-2deg);
+    }
+
+    .envelope {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff4b82, #8b5cf6);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 25px var(--accent-glow);
+      font-size: 2.8rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff, #ffb3c6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: var(--subtext);
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    /* Spotify Embed */
+    .spotify-box {
+      margin-bottom: 25px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Keypad / Passcode Input */
+    .passcode-section {
+      margin-top: 15px;
+    }
+
+    .passcode-display {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      direction: ltr;
+    }
+
+    .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      transition: all 0.2s ease;
+    }
+
+    .dot.filled {
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .numpad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 260px;
+      margin: 0 auto;
+      direction: ltr;
+    }
+
+    .num-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      font-size: 1.3rem;
+      font-weight: 700;
+      padding: 14px 0;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .num-btn:active {
+      transform: scale(0.92);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .num-btn.clear-btn {
+      font-size: 0.85rem;
+      color: #f43f5e;
+      font-weight: 600;
+    }
+
+    /* Revealed Letter Card */
+    .letter-card {
+      display: none;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 35px 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: left;
+      line-height: 1.9;
+      animation: popUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popUp {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .letter-title {
+      color: var(--accent);
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .letter-content {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      white-space: pre-line;
+      margin-bottom: 20px;
+    }
+
+    .heart-footer {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- MAIN LOCK CARD -->
+    <div class="envelope-card" id="lockCard">
+      <div class="envelope-wrapper">
+        <div class="envelope">💌</div>
+      </div>
+      
+      <h1>Happy Birthday, Faisal</h1>
+      <p class="subtitle">Enter the passcode to unlock the letter 🔒</p>
+
+      <!-- Spotify Embed Player -->
+      <div class="spotify-box">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0VpEX8ib3wE7u8NOw4szU6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+      <!-- Passcode Display -->
+      <div class="passcode-section">
+        <div class="passcode-display">
+          <div class="dot" id="dot0"></div>
+          <div class="dot" id="dot1"></div>
+          <div class="dot" id="dot2"></div>
+          <div class="dot" id="dot3"></div>
+        </div>
+
+        <!-- Numpad -->
+        <div class="numpad">
+          <button class="num-btn" onclick="pressNum('1')">1</button>
+          <button class="num-btn" onclick="pressNum('2')">2</button>
+          <button class="num-btn" onclick="pressNum('3')">3</button>
+          <button class="num-btn" onclick="pressNum('4')">4</button>
+          <button class="num-btn" onclick="pressNum('5')">5</button>
+          <button class="num-btn" onclick="pressNum('6')">6</button>
+          <button class="num-btn" onclick="pressNum('7')">7</button>
+          <button class="num-btn" onclick="pressNum('8')">8</button>
+          <button class="num-btn" onclick="pressNum('9')">9</button>
+          <button class="num-btn clear-btn" onclick="clearCode()">CLEAR</button>
+          <button class="num-btn" onclick="pressNum('0')">0</button>
+          <button class="num-btn clear-btn" onclick="backspace()">⌫</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECRET LETTER CARD -->
+    <div class="letter-card" id="letterCard">
+      <div class="letter-title">✨ Happy Birthday, Faisal ✨</div>
+      <div class="letter-content">
+I’ve been trying to find the right words, but honestly, nothing feels big enough to describe what you mean to me. Finding you was the best thing that ever happened to me.
+
+You’ve given me a kind of peace and safety I’ve never felt with anyone else. With you, I can just be completely myself, and that’s the greatest feeling in the world. I feel so unbelievably lucky to have you by my side.
+
+Thank you for being my safe space, my favorite person, and my home. I love you so much, Faisal. Happy Birthday ❤️
+      </div>
+      <div class="heart-footer">💖🎂🎁</div>
+    </div>
+
+  </div>
+
+  <script>
+    const CORRECT_CODE = "2323";
+    let currentCode = "";
+
+    function updateDots() {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById(`dot${i}`);
+        if (i < currentCode.length) {
+          dot.classList.add('filled');
+        } else {
+          dot.classList.remove('filled');
+        }
+      }
+    }
+
+    function pressNum(num) {
+      if (currentCode.length < 4) {
+        currentCode += num;
+        updateDots();
+        
+        if (currentCode.length === 4) {
+          setTimeout(checkCode, 200);
+        }
+      }
+    }
+
+    function clearCode() {
+      currentCode = "";
+      updateDots();
+    }
+
+    function backspace() {
+      currentCode = currentCode.slice(0, -1);
+      updateDots();
+    }
+
+    function checkCode() {
+      if (currentCode === CORRECT_CODE) {
+        document.getElementById('lockCard').style.display = 'none';
+        document.getElementById('letterCard').style.display = 'block';
+      } else {
+        alert('Incorrect passcode! Please try again.');
+        clearCode();
+      }
+    }
+  </script>
+</body>
+</html>
